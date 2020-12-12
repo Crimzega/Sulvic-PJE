@@ -1,8 +1,10 @@
 package com.sulvic.util;
 
-import static com.sulvic.util.SulvicMath.*;
+import static com.sulvic.util.SulvicMath.clampInt;
+import static com.sulvic.util.SulvicMath.rangedInt;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 @SuppressWarnings("unchecked")
 public class SulvicArrays{
@@ -15,7 +17,15 @@ public class SulvicArrays{
 	}
 	
 	public static <T> T[] getArrayFromCollection(Collection<T> collection) throws NullPointerException{
-		return (T[])collection.toArray();
+		T[] array = (T[])new Object[collection.size()];
+		Iterator<T> iterator = collection.iterator();
+		int i = 0;
+		while(iterator.hasNext()){
+			array[i] = iterator.next();
+			i++;
+		}
+		return array;
+		
 	}
 	
 	public static <T> T getRandomValue(T[] array){ return array[rangedInt(0, array.length - 1)]; }

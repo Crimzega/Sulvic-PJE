@@ -10,9 +10,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Vector;
 
-import com.sulvic.lib.DoubleKeyMap;
-import com.sulvic.lib.ArrayDoubleKeyMap;
-
 @SuppressWarnings({"unchecked"})
 public class ContentBuilder{
 	
@@ -77,14 +74,6 @@ public class ContentBuilder{
 	public static <K, V> LinkedHashMap<K, V> newLinkedHashMap(Map.Entry<K, V>... entries){
 		LinkedHashMap<K, V> map = newLinkedHashMap();
 		for(Map.Entry<K, V> entry: entries) map.put(entry.getKey(), entry.getValue());
-		return map;
-	}
-	
-	public static <K, K2, V> ArrayDoubleKeyMap<K, K2, V> newHashDoubleKeyMap(){ return new ArrayDoubleKeyMap<K, K2, V>(); }
-	
-	public static <K, K2, V> ArrayDoubleKeyMap<K, K2, V> newHashDoubleKeyMap(DoubleKeyMap.Entry<K, K2, V>... entries){
-		ArrayDoubleKeyMap<K, K2, V> map = newHashDoubleKeyMap();
-		for(DoubleKeyMap.Entry<K, K2, V> entry: entries) map.put(entry.getMainKey(), entry.getSecondKey(), entry.getValue());
 		return map;
 	}
 	

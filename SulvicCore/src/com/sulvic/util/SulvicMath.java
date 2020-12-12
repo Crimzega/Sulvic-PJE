@@ -4,9 +4,12 @@ import java.util.Random;
 
 public class SulvicMath{
 	
+	private static final double ROTATION_BASE = Math.PI / 180d;
 	private static final Random RAND = new Random();
 	
 	public static double clampDouble(double value, double min, double max){ return value < min? min: value > max? max: value; }
+	
+	public static double doubleRotationDouble(double value){ return ROTATION_BASE * wrapDouble(value, -180d, 180d); }
 	
 	public static double min(double value, double value1){ return value > value1? value: value1; }
 	
@@ -22,6 +25,8 @@ public class SulvicMath{
 		while(value > max) value -= wrap;
 		return value;
 	}
+	
+	public static float getRotationFloat(float value){ return (float)ROTATION_BASE * wrapFloat(value, -180f, 180f); }
 	
 	public static float clampFloat(float value, float min, float max){ return value < min? min: value > max? max: value; }
 	
